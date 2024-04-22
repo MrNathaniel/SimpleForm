@@ -13,21 +13,24 @@ function App() {
     setEmail(value);
   };
   const handlePasswordChange = (event) => {
-    event.target.value;
+    const value = event.target.value;
     setPassword(value);
   };
   const handleConfirmPasswordChange = (event) => {
     const value = event.target.value;
     setConfirmPassword(value);
   };
-  const handleSubmitChange = (event) => {
-    const value = event.target.value;
-    setSubmit(value);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
   };
   return (
     <>
-      <form>
+      <header>
         <h1>Create account</h1>
+      </header>
+
+      <form>
         <input placeholder="Name" type="text" name="name"></input>
         <input
           placeholder="email"
@@ -47,15 +50,14 @@ function App() {
           placeholder="Confirm Password"
           type="password"
           name="ConfirmPassword"
-          value={password}
+          value={confirmPassword}
           onChange={handleConfirmPasswordChange}
         ></input>
         <input
-          placeholder="Register"
+          className="submit"
           type="submit"
-          name="submit"
-          value={submit}
-          onChange={handleSubmitChange}
+          value="Submit"
+          onSubmit={handleSubmit}
         ></input>
       </form>
     </>
